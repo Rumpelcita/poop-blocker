@@ -8,8 +8,8 @@ var OAuth = require('oauth');
 var app = express();
 
 // fill with keys provided by Twitter
-const CONSUMER_KEY = '******';
-const CONSUMER_SECRET = '******';
+const CONSUMER_KEY = process.env.CONSUMER_KEY;
+const CONSUMER_SECRET = process.env.CONSUMER_SECRET;
 // enable this through twitter's app management panel
 const CALLBACK_RESOURCE = '/access-token';
 const CALLBACK_URL = 'https://poop-blocker.glitch.me' + CALLBACK_RESOURCE;
@@ -163,6 +163,7 @@ app.get(CALLBACK_RESOURCE, function(request, response) {
   var oauth_verifier = request.query.oauth_verifier;
   var tweet_url = request.query.tweet_url;
   var tweet_id = parse_tweet_id(tweet_url);
+  var report = eval_report(request.body.reportauth);
 
   var oa = get_twitter_oauth(tweet_url);
   // exchange the authorized Request Token for an Access Token (OAuth1.0 - 6.3)
@@ -174,9 +175,8 @@ app.get(CALLBACK_RESOURCE, function(request, response) {
         access_token_key: access_token,
         access_token_secret: access_token_secret
       });
-      // TODO: implement `report`
       try {
-        fetch_retweeters(client, tweet_id, false);
+        fetch_retweeters(client, tweet_id, report);
       }
       catch (error) {
         response.send(error);
