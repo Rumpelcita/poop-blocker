@@ -35,7 +35,14 @@
       
       <p>This blocks every single user who retweeted an specific tweet and allows you to report them as spam if you so choose.</p>
       
-      <p class="bold">The Consumer Key, Consumer Secret, Access Token, and Access Token Secret are Twitter credentials. You can get them <a href="https://apps.twitter.com/">here</a>.</p>
+      <p class="bold">You can rely on Twitter's OAuth services</p>
+      <form action="/request-token" method="post">
+        <label class="form-block">Tweet URL <input id="tweet_url2" name="tweet_url" type="text" required class="form-block" placeholder="The URL you wish to block goes here =)" aria-labelledby="submit-block"></label>
+        <label class="form-block"><input id="reportauth" name="report" type="checkbox"> Report as spam?</label> <br><br>
+        <button type="submit" class="form-block">Block the poop!</button>
+      </form>
+      
+      <p class="bold">Or write in your credentials manually. The Consumer Key, Consumer Secret, Access Token, and Access Token Secret are Twitter credentials. You can get them <a href="https://apps.twitter.com/">here</a>.</p>
       
       <form  action="/block" method="post">
         <label class="form-block">Consumer Key<input type="password" id="consumer_key" class="form-block" name="consumer_key" required placeholder="Consumer Key"/></label>
@@ -47,11 +54,6 @@
         <button type="submit" id="submit-block" class="form-block">Block the poop!</button>
       </form>
 
-      <p class="bold">Alternatively, rely on Twitter's OAuth services</p>
-      <form action="/request-token" method="post">
-        <label class="form-block">Tweet URL <input id="tweet_url2" name="tweet_url" type="text" required class="form-block" placeholder="The URL you wish to block goes here =)" aria-labelledby="submit-block"></label>
-        <button type="submit" class="form-block">Block the poop!</button>
-      </form>
     </main>
 
     <footer>
