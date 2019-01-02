@@ -46,6 +46,12 @@
         <label class="form-block"><input id="report" name="report" type="checkbox"> Report as spam?</label> <br><br>
         <button type="submit" id="submit-block" class="form-block">Block the poop!</button>
       </form>
+
+      <p class="bold">Alternatively, rely on Twitter's OAuth services</p>
+      <form action="/request-token" method="post">
+        <label class="form-block">Tweet URL <input id="tweet_url2" name="tweet_url" type="text" required class="form-block" placeholder="The URL you wish to block goes here =)" aria-labelledby="submit-block"></label>
+        <button type="submit" class="form-block">Block the poop!</button>
+      </form>
     </main>
 
     <footer>
