@@ -13,8 +13,7 @@
     "express": "^4.16.3",
     "body-parser": "^1.18.3",
     "twitter": "^1.7.1",
-    "ejs": "^2.6.1",
-    "oauth": "^0.9.15"
+    "ejs": "^2.6.1"
   },
   "engines": {
     "node": "8.x"
